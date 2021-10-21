@@ -1,0 +1,14 @@
+<% let i=0; users.forEach(user => { %>
+    <tr>
+        <td><%= ++i %> </td>
+        <td><%= user.name %> </td>
+        <td><%= user.email %> </td>
+        <td><%= user.gender %> </td>
+        <td><%= user.status %> </td>
+        <td>
+            <a href="/update-user?id=<%= user._id %> " class="fas fa-user-edit mr-2">
+            </a>
+            <a href="#" data-id="<%= user._id %> " class="fas fa-user-slash ml-2" onclick="deleteUser(this)"></a>
+        </td>
+    </tr>
+<% }) %>

@@ -1,0 +1,47 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script scr="/js/scripts.js">
+    $('#update_user').submit(function (event) {
+        event.preventDefault();
+        var data = {};
+        let form_data = $(this).serializeArray();
+        form_data.map(item => {
+            data[item.name] = item.value;
+        })
+
+
+        $.ajax({
+            url: `http://localhost:3000/api/users/${data.id}`,
+            method: 'PUT',
+            data: data,
+            success: function (response) {
+                if (response) {
+                    alert('Successfully');
+                }
+            }
+            // error: function (err) {} 
+        })
+
+    })
+
+    function deleteUser(element) {
+        let result = confirm('Are you sure you want to delete!');
+        if (!result) return;
+        let id = $(element).attr('data-id');
+        console.log(id)
+        $.ajax({
+            url: `http://localhost:3000/api/users/${id}`,
+            method: 'DELETE',
+            success: function (response) {
+                if (response) {
+                    alert('Deleting successfully!');
+                    location.reload();
+                }
+            }
+        })
+    }
+</script>
+</body>
+
+</html>
