@@ -12,7 +12,7 @@
 
 
         $.ajax({
-            url: `http://localhost:3000/api/users/${data.id}`,
+            url: `https://luantran-apiuser.herokuapp.com/api/users/${data.id}`,
             method: 'PUT',
             data: data,
             success: function (response) {
@@ -31,7 +31,7 @@
         let id = $(element).attr('data-id');
         console.log(id)
         $.ajax({
-            url: `http://localhost:3000/api/users/${id}`,
+            url: `https://luantran-apiuser.herokuapp.com/api/users/${id}`,
             method: 'DELETE',
             success: function (response) {
                 if (response) {

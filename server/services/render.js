@@ -2,7 +2,7 @@ const axios = require('axios');
 
 exports.homeRoutes = (req,res) => {
     // Make a get request to /api/users
-    axios.get('http://localhost:3000/api/users')
+    axios.get('https://luantran-apiuser.herokuapp.com/api/users')
      .then(response => {
         console.log(response);
         res.render('index', {users : response.data});
@@ -17,7 +17,7 @@ exports.addUserRouter = (req, res) => {
 }
 
 exports.updateUserRouter = (req, res) => {
-    axios.get('http://localhost:3000/api/users', {
+    axios.get('https://luantran-apiuser.herokuapp.com/api/users', {
         params: {
             id: req.query.id
         }
