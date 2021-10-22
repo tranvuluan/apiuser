@@ -47,4 +47,4 @@ app.use('/', router);
 
 
 
-app.listen(PORT, () => console.log(`Sever is running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Sever is running on ${path.dirname(__filename)}:${PORT}`));
